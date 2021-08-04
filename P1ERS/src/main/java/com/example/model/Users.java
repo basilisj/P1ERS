@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -46,10 +47,11 @@ public class Users {
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="role_FK", updatable=false, insertable=true)
 	private UserRoles userRoles;
-
-	//@OneToMany(mappedBy="re", fetch=FetchType.LAZY)
-	//private List<Reimbursement> tList = new ArrayList<Reimbursement>();
-	
+/*
+	@JsonIgnore
+	@OneToMany(mappedBy="re", fetch=FetchType.LAZY)
+	private List<Reimbursement> rList = new ArrayList<Reimbursement>();
+	*/
 	
 	
 	public Users() {
@@ -98,31 +100,19 @@ public class Users {
 		this.email = email;
 	}
 
-	public Users(int userId, String firstName, String lastName, String username, String email, String password, UserRoles userRoles) {
+	
+/*
+	public Users(int userId, String firstName, String lastName, String username, String email, String password,
+			UserRoles userRoles, List<Reimbursement> rList) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.username = lastName + firstName + (new Random().nextInt(9000)+1000);
-		this.email=email;
+		this.username = username;
+		this.email = email;
 		this.password = password;
 		this.userRoles = userRoles;
-		//this.tList = tList;
-	}
-/*
-	public Users(int i, String first, String last, String username, String password, Object setReimbId,
-			Object setStatusId, Object setTypeId) {
-		this.userId = i;
-		this.firstName = first;
-		this.lastName = last;
-		this.username = username;
-		this.password = password;
-		
-	}
-
-	public Users(int i, String string, String string2, String string3, String string4, Object setReimbId,
-			Object setStatusId, Object setTypeId) {
-		// TODO Auto-generated constructor stub
+		this.rList = rList;
 	}
 */
 	public int getUserId() {
@@ -172,20 +162,23 @@ public class Users {
 	public void setUserRoles(UserRoles userRoles) {
 		this.userRoles = userRoles;
 	}
+/*
+	public List<Reimbursement> getrList() {
+		return rList;
+	}
 
-	//public List<Reimbursement> gettList() {
-	//	return tList;
-	//}
-
-	//public void settList(List<Reimbursement> tList) {
-	//	this.tList = tList;
-	//}
-
+	public void settList(List<Reimbursement> rList) {
+		this.rList = rList;
+	}
+*/
 	@Override
 	public String toString() {
 		return "Users [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
-				+ username + ", email=" + email + ", password=" + password + ", userRoles=" + userRoles + "]";
+				+ username + ", email=" + email + ", password=" + password + ", userRoles=" + userRoles + ", rList="
+				 + "]";
 	}
+
+	
 	
 	
 }

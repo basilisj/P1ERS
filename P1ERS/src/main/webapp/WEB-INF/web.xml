@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://JAVA.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>P1ERS</display-name>
   <welcome-file-list>
-    <welcome-file>resources/html/SocialHub.html</welcome-file>
+    <welcome-file>resources/html/Home.html</welcome-file>
     
   </welcome-file-list>
   
@@ -16,7 +16,7 @@
   <servlet-mapping>
   	<servlet-name>MainJSONServlet</servlet-name>
   	<!-- We can use the * to specify multiple mappings -->
-  	<url-pattern>/api/login</url-pattern>
+  	<url-pattern>/api/*</url-pattern>
   </servlet-mapping>
   <servlet>
   <servlet-name>MainViewServlet</servlet-name>

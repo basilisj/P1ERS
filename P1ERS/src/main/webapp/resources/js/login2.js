@@ -29,5 +29,5 @@ alert('Username or password was incorrect');
 return;
 }
 
-location.href = 'resources/html/employee.html';
+location.href = 'resources/html/manager.html';
  }

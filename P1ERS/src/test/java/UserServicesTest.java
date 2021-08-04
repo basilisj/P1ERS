@@ -35,8 +35,8 @@ public class UserServicesTest {
 	public void testValidLogin() {
 		UserRoles r1 = new UserRoles(1, "EMPLOYEE");
 		UserRoles r2 = new UserRoles(2, "FINANCIAL MANAGER");
-		Users u1 = new Users (1, "test", "user", "usertest", "test@email.com", "testpass", r1);
-		Users not = new Users(0, "test", "user",  "usertest", "test@mail.com", "testpass", r2);
+		Users u1 = new Users (1, "test", "user",  "test@email.com", "testpass", r1);
+		Users not = new Users(0, "test", "user",  "test@mail.com", "testpass", r2);
 		
 		when(uDao.getUserByUserName(anyString())).thenReturn(u1);
 		
